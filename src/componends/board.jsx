@@ -1,17 +1,22 @@
 import Square from './squares';
-import { useState } from 'react';
+import { useState } from 'react'; // use for rendring
 
 const Board = () => {
   const [squares, setSquares] = useState(Array(9).fill(null));
+  const [IsNext, setIsNext] = useState(false);
   const handleSquareClick = clickPosition => {
+    if (squares[clickPosition]) {
+      return;
+    }
     setSquares(currentSuare => {
       return currentSuare.map((squarevalue, position) => {
         if (clickPosition == position) {
-          return 'X';
+          return IsNext ? 'X' : 'O';
         }
         return squarevalue;
       });
     });
+    setIsNext(currentIsNext => !currentIsNext); // for flipping the state
   };
 
   const renderSquare = position => {
