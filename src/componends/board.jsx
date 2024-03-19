@@ -1,24 +1,8 @@
 import Square from './squares';
-import { useState } from 'react'; // use for rendring
+//import { useState } from 'react'; // use for rendring
 
-const Board = () => {
-  const [squares, setSquares] = useState(Array(9).fill(null));
-  const [IsNext, setIsNext] = useState(false);
-  const handleSquareClick = clickPosition => {
-    if (squares[clickPosition]) {
-      return;
-    }
-    setSquares(currentSuare => {
-      return currentSuare.map((squarevalue, position) => {
-        if (clickPosition == position) {
-          return IsNext ? 'X' : 'O';
-        }
-        return squarevalue;
-      });
-    });
-    setIsNext(currentIsNext => !currentIsNext); // for flipping the state
-  };
-
+// eslint-disable-next-line react/prop-types
+const Board = ({ squares, handleSquareClick }) => {
   const renderSquare = position => {
     return (
       <Square
