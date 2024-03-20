@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line react/prop-types
-const StatusMessage = ({ winner, IsNext, squares }) => {
-  const nomoveLeft = squares.every(squareValue => {
+const StatusMessage = ({ winner, gameBoard }) => {
+  const nomoveLeft = gameBoard.squares.every(squareValue => {
     return squareValue !== null;
   });
-  const nextPlayer = IsNext ? 'X' : 'O';
+  const nextPlayer = gameBoard.IsNext ? 'X' : 'O';
   const renderStatusMessage = () => {
     if (winner) {
       return (
@@ -29,7 +29,7 @@ const StatusMessage = ({ winner, IsNext, squares }) => {
       return (
         <div>
           Next player is {''}
-          <span className={IsNext ? 'text-green' : 'text-orange'}>
+          <span className={gameBoard.IsNext ? 'text-green' : 'text-orange'}>
             {nextPlayer}
           </span>
         </div>
