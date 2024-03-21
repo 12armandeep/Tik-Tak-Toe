@@ -64,7 +64,8 @@ function App() {
   return (
     <div className="app">
       <h1>
-        TIK <span className="text-green"> TAK</span> TOE
+        TIK <span className="text-green"> TAK</span>{' '}
+        <span className="text-orange">TOE</span>
       </h1>
       <StatusMessage winner={winner} gameBoard={gameBoard} />
       <Board
